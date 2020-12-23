@@ -1,6 +1,6 @@
-#include <TM1637Display.h>
-#include <ClickEncoder.h>
-#include <TimerOne.h>
+#include <TM1637Display.h>                                           // https://github.com/avishorp/TM1637
+#include <ClickEncoder.h>                                            // https://github.com/0xPIT/encoder/tree/arduino
+#include <TimerOne.h>                                                // https://playground.arduino.cc/Code/Timer1/
 #include <EEPROM.h>
 
 #define numberOfcentiSeconds( _time_ ) ( _time_ / 10 )                // amount of centiseconds
