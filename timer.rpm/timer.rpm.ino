@@ -63,9 +63,9 @@ typedef struct                                                        // setting
 
 settings cfg = {
       config_version,
-     1,                                                               // int timerHours  
-     0,                                                               // int timerMinutes
-     25                                                               // int RPM
+     0,                                                                // int timerHours  
+     15,                                                               // int timerMinutes
+     20                                                                // int RPM
 };
 
 
@@ -117,7 +117,7 @@ void setup(){
   pinMode( dir_pin, OUTPUT );  
   digitalWrite(dir_pin, HIGH);                               
   lastValue = 0;
-  RPM = 25;                                                           // 25 rpm as default
+  RPM = 20;                                                           // 20 rpm as default
   colon_ms = millis();
   savemillis = -2000;
   himillis = 0;
@@ -138,10 +138,10 @@ void menuTimer() {
    while  ( done && !rpmset )  {
       value += encoder -> getValue();
             if ( value > lastValue ) {
-              timerMinutes += 5;                                      // one rotary step is 5 minutes
-              if (timerHours >= 99 && timerMinutes >= 55) {
-                timerHours = 99;                                      // max 99 hours
-                timerMinutes = 55;
+              timerMinutes++;                                         // one rotary step is 1 minute
+              if (timerHours >= 12 && timerMinutes >= 0) {
+                timerHours = 12;                                      // max 12 hours
+                timerMinutes = 0;
               }
               if (timerMinutes >= 60) {
                 timerHours++;
@@ -149,10 +149,10 @@ void menuTimer() {
               }   
             } 
             else if ( value < lastValue ) {
-              if ( timerMinutes > 0) timerMinutes -= 5;      
+              if ( timerMinutes > 0) timerMinutes--;      
               else if (timerMinutes == 0 && timerHours > 0) {
                 timerHours--;
-                timerMinutes = 55;
+                timerMinutes = 59;
               } 
             }
             if ( value != lastValue ) {
@@ -186,13 +186,13 @@ void menuRPM()  {
             if ( RPM >= 50 )
               RPM = 50;                                               // max speed 50rpm
             else
-              RPM += 1;                                               // one rotary step is 1 rpm
+              RPM++;                                                  // one rotary step is 1 rpm
             } 
           if ( value < lastValue )
             if ( RPM <= 1 )
               RPM = 1;                                                // min speed 1rpm
             else 
-              RPM -= 1;
+              RPM--;
             
     if ( lastRPM != RPM ) {
       Serial.print( "RPM value: " );
