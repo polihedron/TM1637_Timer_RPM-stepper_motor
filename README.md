@@ -7,7 +7,9 @@ Functions:
 
 -timer
 
--motor speed control - rpm (quite accurate)
+-motor speed control - rpm (quite accurate), cw and ccw
+
+-acceleration/dececeleration 
 
 -angle adjust by replacing Crankdeg part: 10deg, 15deg, and 20deg
 
