@@ -7,7 +7,9 @@ Functions:
 
 -timer
 
--motor speed control - rpm (quite accurate), cw and ccw
+-motor speed control - rpm (quite accurate), 
+
+-direction control, cw and ccw
 
 -acceleration/dececeleration 
 
