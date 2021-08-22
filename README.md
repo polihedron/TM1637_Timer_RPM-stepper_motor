@@ -5,9 +5,13 @@ It’s a laboratory equipment used to mix, blend, or agitate substances in a tub
 
 Functions:
 
--timer
+-timer, with step 1 minute, max 12h.
 
--motor speed control - rpm (quite accurate)
+-motor speed control - rpm (quite accurate), 
+
+-direction control, cw and ccw
+
+-acceleration/deceleration 
 
 -angle adjust by replacing Crankdeg part: 10deg, 15deg, and 20deg
 
